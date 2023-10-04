@@ -3,30 +3,49 @@
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## About project 
+# About project 
 
-This project is designe for MCIT to manage the incomming and out going letter requests
+This project is designe for MCIT to manage the incomming and out going letter requests, this project is only some mini part of the project back-end implementation using laravel.
+
+I was eager/inerested to upload the front-end using angular technology but Due to lackage of time if have only implement the back-end.
+
+if you have any concern i am pleasure to answer any concern and show you the enterprise applications that i have implement for EA and other enterpis companines
 
 
-## Modules
+
+# How To Use
+
+* Clone git repository
+* install dependencies
+* runn followin commands\
+
+- php artisan passport:intsall\n
+- php artisan db:seed\
+- php artisan tinker\
+    $user = new \App\Models\User;\
+    $user->createSuperAdmin();\                                                                   
+- php artisan serve
+    
+
+# Modules
 
 The project has below nodes/main components
 
-1- Users 
-2- User Management
-3- Letters
-4- Reuquests 
-5- Approvals and workflows
-6- Organizations
-7- Permissions
-8- Roles
-9- Management
+1- Users\ 
+2- User Management\
+3- Letters\
+4- Reuquests\ 
+5- Approvals and workflows\
+6- Organizations\
+7- Permissions\
+8- Roles\
+9- Management\
     9.1- Manage the historical data and request
     9.2- Optimizing the query of historical data
     9.3- Reporting
 
 
-## Main Poinsts considered in this project
+# Main Poinsts considered in this project
 
  * User ACL
  * Permisson managent for each request using middlewares
@@ -42,7 +61,7 @@ The project has below nodes/main components
  * 
 
 
- ## This version Implementation notes
+ # This version Implementation notes
 
  * Used Passport for JWT managemnt
  * Used role and modle base structure for permisions
@@ -51,9 +70,9 @@ The project has below nodes/main components
 
 
 
-### A deeper look on each module
+# A deeper look on each module
 
-* USER
+### USER
 
 in user have consider all CRUD APIs, Search Based on q  uery, Scope, Route Authorization, Checking permission, checking organizational level data.
 
