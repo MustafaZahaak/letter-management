@@ -19,7 +19,7 @@ if you have any concern i am pleasure to answer any concern and show you the ent
 * install dependencies
 * runn followin commands\
 
-- php artisan passport:intsall\n
+- php artisan passport:intsall\
 - php artisan db:seed\
 - php artisan tinker\
     $user = new \App\Models\User;\
@@ -31,10 +31,10 @@ if you have any concern i am pleasure to answer any concern and show you the ent
 
 The project has below nodes/main components
 
-1- Users\ 
+1- Users\
 2- User Management\
 3- Letters\
-4- Reuquests\ 
+4- Reuquests\
 5- Approvals and workflows\
 6- Organizations\
 7- Permissions\
@@ -112,25 +112,25 @@ The concept behind it, is like below
 
 we have 3 important component in request process using workflow
 
-# Letter
+## Letter
 A letter is an applicaion where it comes form out side either inside to out ministry
 
 * it has a uniqur ref number, type, and from organization
 
-# Letter Request 
+## Letter Request 
 A letter Request is the workflow step tracer which we can tracke the income/outgoing request workflow step.
 
 * it define the applicaiont/letter current step in a workflow
 * Manage the request workflow next action 
 * we can check the process status
 
-# Work Flow Step 
+## Work Flow Step 
 A Work flow step define all steps that a request must go on that and which action should be done in this step.
 
-# Request Activity Log
+## Request Activity Log
 Used to manage all activities that are done on a request
 
-# How workflow work
+## How workflow work
 
 once the request comes and registered, a new record on letter request will be created that define the current step of the applicaion/letter, then workflow will be start, in each work flow step we have actions field that define which Action should be done in this step, once the process of action completed, the current step will be udpated, and log will be generate on request.
 
