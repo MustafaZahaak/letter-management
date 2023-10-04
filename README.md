@@ -70,7 +70,21 @@ in user have consider all CRUD APIs, Search Based on q  uery, Scope, Route Autho
 * manage the applicaion/letter type
 
 
+### ROLE AND PERMISSION
 
+The concept behind the role and permissoin is like below
+
+* First we create role for an organization or ministry
+* Second we seed all permission from database seeder (permissionSeeder)
+* Third we create role and give required permission to role
+* role have many permisison and permisison has is related to an gurad
+* Every user has role and base on role we check the user permission in ability middleware
+* Implementation of ever permission is written in sperate policy bcz of easy management
+* User can have permission directly or via a role
+* By defualt super_admin user have all permissions
+* Permission are checking in every API request, if user has not permisison then the called api shows that you don't have sufficient permission
+* there are some public route that user can access them without any permission
+* Permissions are managent based on JWT
 
 
 

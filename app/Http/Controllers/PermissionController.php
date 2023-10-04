@@ -44,9 +44,11 @@ class PermissionController extends Controller
                 'message' => 'Permission not found!'
             ]);
         }
+        
         $permissionInfo = $r->only($p->getFillable());
         $permissionInfo['descriptions'] = json_encode($r->descriptions);
         $p->update($permissionInfo);
+        
         return $p;
     }
 
@@ -60,7 +62,6 @@ class PermissionController extends Controller
     public function massDestroy(Request $request)
     {
         Permission::whereIn('id', request('ids'))->delete();
-
         return response()->noContent();
     }
 

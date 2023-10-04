@@ -117,11 +117,11 @@ class PermissionSeeder extends Seeder
             "pastho_description": "دغه برخه یو کارکونکي ته اجازه ورکوی چی د یو کارکونکي د حساب معلومات وګوری "
 
         }'),
-        
+
         array('name' => '/users/change-password', 'guard_name' => 'api', "module_name" => "users", "description" => '{"english_name": "Change Password","dari_name": "تغیر پاسورد",
             "pashto_name": "د پاسور تبدیل","english_description": "This allows User to change password",
             "dari_description": "این بخش برای کارمند اجازه میدهد تا معلومات جزئیات یک حساب کارمند را نشان دهد",
-            "pastho_description": "دغه برخه یو کارکونکي ته اجازه ورکوی چی د یو کارکونکي د حساب معلومات وګوری "
+            "pastho_description": "دغه برخه یو کارکونکي ته اجازه ورکوی چی د یو کارکونکي د حساب  معلومات وګوری "
 
         }'),
 
