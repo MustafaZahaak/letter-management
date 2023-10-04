@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
-class CreateLetterRequestsTable extends Migration
+class CreateWorkFlowStepsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,11 @@ class CreateLetterRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('letter_requests', function (Blueprint $table) {
+        Schema::create('workflow_steps', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('random_unique_field')->unique()->default(Str::random(10));
-            $table->text('letter_id')->nullable();
-            $table->integer('organization_id');
-            $table->text('workflow_step')->nullable();
-            $table->enum('status', ['draft','completed', 'rejected'])->default('draft');
-            $table->text('job_status')->nullable();
+            $table->text('name')->nullable();
+            $table->text('next_step')->nullable();
+            $table->enum('actions', ['view','print','approve','reject','draft','terminate-workflow'])->nullable();
             $table->integer('created_by');
             $table->softDeletes();
             $table->timestamps();
@@ -35,6 +32,6 @@ class CreateLetterRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('letter_requests');
+        Schema::dropIfExists('workflow_steps');
     }
 }

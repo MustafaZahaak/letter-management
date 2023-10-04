@@ -34,15 +34,6 @@ Route::resource('/admin/services', 'ServiceController');
 Route::resource('/service-updates', 'ServiceUpdateController');
 
 
-
-Route::middleware([])->prefix('subscriptions')->group(function () {
-    Route::resource('', 'SubscriptionController');
-    Route::post('testSMS', 'SmsController@smsReceived');
-    Route::get('/listSubCats/{id}', 'SubscriptionController@listSubCats');//->middleware('can:subscriptions-list');
-    Route::get('/listUnsubCats/{id}', 'SubscriptionController@listNotSubCats');//->middleware('can:subscriptions-list');;
-    Route::post('/deactive', 'SubscriptionController@unSubscribe');
-});
-
 Route::middleware(['auth:api'])->prefix('files')->group(function () {
     Route::post('/uploadFile', 'FileController@uploadFile');
     Route::get('/viewFile', 'FileController@viewFile');
@@ -51,24 +42,16 @@ Route::middleware(['auth:api'])->prefix('files')->group(function () {
 
 Route::middleware(['auth:api','ability'])->group(function () {
     Route::resource('letters', 'LetterController');
-    Route::resource('sms', 'SmsController');
+    Route::resource('letter-requests', 'LetterRequestController');
+    Route::resource('workflow-steps', 'StepWorkFlowController');
+    Route::post('process-request/{id}', 'LetterRequestController@processRequestAction');
     Route::get("/logOut", "UserController@logOut");
-    Route::post("/sendSms", "SmsController@sendMessage");
-    Route::post('/receiveSms', "SmsController@receiveSms");
 });
 
 Route::prefix('super-admin')->middleware(['auth:api','ability'])->group(function () {
     Route::resource('organizations', 'OrganizationController');
     Route::resource('employees', 'EmployeeController');
     Route::get('/organizations/show/{id}', 'OrganizationController@show');
-    Route::get('archive', 'SendLogArchiveController@archive');
-    Route::post('createNationalEmployeeGroup', 'GroupController@createNationalEmployeeGroup');
-    Route::post('createInternationalEmployeeGroup', 'GroupController@createInternationalEmployeeGroup');
-    Route::post('createAllEmployeeGroup', 'GroupController@createAllEmployeeGroup');
-    /** used by administration */
-    Route::put('updateNationalEmployeeGroup', 'GroupController@updateNationalEmployeeGroup');
-    Route::put('updateInternationalEmployeeGroup', 'GroupController@updateInternationalEmployeeGroup');
-    Route::put('updateAllEmployeeGroup', 'GroupController@updateAllEmployeeGroup');
 });
 
 Route::prefix('admin')->middleware(['auth:api','ability'])->group(function () {
@@ -78,21 +61,6 @@ Route::prefix('admin')->middleware(['auth:api','ability'])->group(function () {
     Route::get('/users/show/{id}', 'UserController@show');
     Route::resource('roles', 'RoleController');
     Route::get('/roles/show/{id}', 'RoleController@show');
-    Route::resource('members', 'GroupMemberController');
-    Route::get('/members/show/{id}', 'GroupMemberController@show');
-    Route::get('groups/withMembers', 'GroupController@withMembers');
-    Route::get('/groups/show/{id}', 'GroupController@show');
-    Route::resource('groups', 'GroupController');
-    Route::resource('customers', 'CustomerController');
-    Route::post('/customers/subscribedTo', 'CustomerController@subscribedTo');
-    Route::get('/customers/show/{id}', 'CustomerController@show');
-    Route::post('/customers/batchSubs', 'CustomerController@batchProcess');
-    Route::get('/subscriptions/show/{id}', 'SubscriptionController@show');
-    Route::get('smsReceived', 'SmsController@smsReceived');
-    Route::resource('packages', 'PackageController');
-    Route::get('/packages/show/{id}', 'PackageController@show');
-    // Route::resource('categories', 'CategoryController');
-    Route::get('/categories/show/{id}', 'CategoryController@show');
    
 });
 
