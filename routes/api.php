@@ -50,7 +50,7 @@ Route::middleware(['auth:api'])->prefix('files')->group(function () {
 });
 
 Route::middleware(['auth:api','ability'])->group(function () {
-    Route::resource('originators', 'OriginatorController');
+    Route::resource('letters', 'LetterController');
     Route::resource('sms', 'SmsController');
     Route::get("/logOut", "UserController@logOut");
     Route::post("/sendSms", "SmsController@sendMessage");

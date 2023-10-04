@@ -51,11 +51,26 @@ The project has below nodes/main components
 
 
 
- ## A deeper look on each module
+### A deeper look on each module
 
 * USER
 
-in user have consider all CRUD APIs, Search Based on query, Scope, Route Authorization, Checking permission, checking organizational level data.
+in user have consider all CRUD APIs, Search Based on q  uery, Scope, Route Authorization, Checking permission, checking organizational level data.
+
+
+### LETTERS/ Applications
+
+* Checking permission in every API request 
+* assigning a unique referene number
+* Search Based on query parameter, Route Authorization
+* Scoping the data to manage the amount of data to be retreived based on user type
+* List based on key word 
+* Validating the required payload
+* All CRUD operation
+* manage the applicaion/letter type
+
+
+
 
 
 
