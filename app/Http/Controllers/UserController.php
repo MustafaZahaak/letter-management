@@ -98,7 +98,7 @@ class UserController extends Controller
         return User::with('roles')->where('id', $id)->first();
     }
 
-    public function destroy(DeleteUserRequest $r, $id)
+    public function destroy(Request $r, $id)
     {
         $o = User::where('id', $id)->first();
         if (!$o) {

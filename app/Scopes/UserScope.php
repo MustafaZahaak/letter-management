@@ -16,8 +16,8 @@ class UserScope implements Scope
             $builder->where("type", 'system');
         }
 
-        if ($user->type == 'subscriber') {
-            $builder->where("type", 'subscriber');
+        if ($user->type == 'normal') {
+            $builder->where("type", 'normal');
         }
 
         if (!$user->hasRole('super-admin')) {

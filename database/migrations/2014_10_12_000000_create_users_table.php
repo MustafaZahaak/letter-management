@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->bigInteger('number')->unique();
             $table->enum('status',['active','blocked']);
-            $table->enum('type',['system','subscriber'])->default('subscriber');
+            $table->enum('type',['system','normal'])->default('normal');
             $table->string('org_id');
             $table->enum('per_lang',['dari','english','pashto'])->default('dari');
             $table->timestamp('email_verified_at')->nullable();

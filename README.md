@@ -51,4 +51,16 @@ The project has below nodes/main components
 
 
 
+ ## A deeper look on each module
+
+* USER
+
+in user have consider all CRUD APIs, Search Based on query, Scope, Route Authorization, Checking permission, checking organizational level data.
+
+
+
+
+
+
+
 
